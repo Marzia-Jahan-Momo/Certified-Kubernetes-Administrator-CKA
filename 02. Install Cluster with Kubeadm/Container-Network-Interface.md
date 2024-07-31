@@ -57,8 +57,13 @@
 - Weave net is easy to deploy and agents run as DaemonSet.
  
 #### download and install the manifest
-   wget "https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml" 
+   ```
+   wget "https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml"
+   ``` 
+   
+   ```
    kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml -O weave.yaml
+   ```
     
 ## To change the default cidr block
    vim weave.yaml
