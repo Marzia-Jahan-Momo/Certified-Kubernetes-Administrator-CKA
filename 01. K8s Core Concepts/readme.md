@@ -35,7 +35,7 @@
 
 -> Kubelet schedules pod
 
-### How does that word?
+### How does that work?
 -> Kubelet watches a specific location on the Node it is running in  ``` /etc/kubernetes/manifest ``` Then it schedules pod, when it finds a "Pod" manifest.
 
 -> Kubelet (Not Controller Manager) watches static pod and restarts if it fails.
