@@ -83,7 +83,7 @@ service containerd status
 - First enable ports both in control plane and worker nodes.
 
 
-## Check ```install-k8s-components.sh`` file
+## Check ```install-k8s-components.sh``` file
 - Install kubelet, kubeadm and Kubectl
 
 ### Now Initialize a control plane node
