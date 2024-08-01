@@ -1,4 +1,4 @@
-## For cloud users:
+## For cloud users - enable ports irrespectively control plane as well as master nodes of their own:
 ### Control plane
 ```
 Protocol	   Direction		   Port Range		Purpose				Used By
@@ -23,7 +23,10 @@ TCP		Inbound		 30000-32767	NodePort Services	All
 ---
 
 
-## Who are using on prem check this:
+## Who are using on prem first install firewalld then enable ports:
+        sudo apt-get install firewalld
+	sudo systemctl start firewalld	
+	sudo systemctl enable firewalld
 
 ### Master
 	sudo firewall-cmd --add-port=443/tcp --permanent
