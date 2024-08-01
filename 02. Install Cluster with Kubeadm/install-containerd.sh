@@ -34,6 +34,6 @@ containerd config default | sudo tee /etc/containerd/config.toml -y
 sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 
 # Restart, enable and check status of containerd
-  sudo systemctl restart containerd
-  sudo systemctl enable containerd
-  sudo systemctl status containerd
+sudo systemctl restart containerd
+sudo systemctl enable containerd
+sudo systemctl status containerd
