@@ -1,14 +1,14 @@
 ## For cloud users:
 ### Control plane
 ```
-Protocol	   Direction			Port Range		Purpose						Used By
----------------------------------------------------------------------------------------------------------------------------------
+Protocol	   Direction		   Port Range		Purpose				Used By
+--------------------------------------------------------------------------------------------------------------------
 
-TCP				Inbound		   6443			Kubernetes API server		All
-TCP				Inbound		   2379-2380		etcd server client API		kube-apiserver, etcd
-TCP				Inbound		   10250		Kubelet API			Self, Control plane
-TCP				Inbound		   10259		kube-scheduler			Self
-TCP				Inbound		   10257		kube-controller-manager		Self	
+TCP		   Inbound		   6443			Kubernetes API server		All
+TCP		   Inbound		   2379-2380		etcd server client API		kube-apiserver, etcd
+TCP		   Inbound		   10250		Kubelet API			Self, Control plane
+TCP		   Inbound		   10259		kube-scheduler			Self
+TCP		   Inbound		   10257		kube-controller-manager		Self	
 ```
 
 
