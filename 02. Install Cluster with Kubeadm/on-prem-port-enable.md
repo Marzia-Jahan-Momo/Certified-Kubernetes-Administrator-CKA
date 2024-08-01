@@ -49,6 +49,8 @@ sudo systemctl enable firewalld
 	sudo firewall-cmd --add-port=6783/tcp --permanent
 	sudo firewall-cmd --add-port=6784/tcp --permanent
 
+
+### Check now:
 ```
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-all
