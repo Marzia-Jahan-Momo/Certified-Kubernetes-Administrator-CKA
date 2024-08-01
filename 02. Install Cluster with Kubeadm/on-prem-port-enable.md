@@ -25,7 +25,7 @@ TCP		Inbound		 30000-32767	NodePort Services	All
 
 ## Who are using on prem first install firewalld then enable ports:
 ```
-sudo apt-get install firewalld
+sudo apt-get install firewalld -y
 sudo systemctl start firewalld	
 sudo systemctl enable firewalld
 ```
