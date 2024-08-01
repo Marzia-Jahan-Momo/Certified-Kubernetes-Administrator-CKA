@@ -23,7 +23,7 @@ TCP		Inbound		 30000-32767	NodePort Services	All
 ---
 
 
-## Who are using on prem chcek this:
+## Who are using on prem check this:
 
 ### Master
 	sudo firewall-cmd --add-port=443/tcp --permanent
