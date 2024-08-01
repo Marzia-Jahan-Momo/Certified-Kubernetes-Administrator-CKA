@@ -79,7 +79,14 @@ service containerd status
 ## check swap ipconfig, ensure swap is 0
     free -m
 
-### Initialize a control plane node
+## Now check ```port-enable.sh``` file
+- First enable ports both in control plane and worker nodes.
+
+
+## Check ```install-k8s-components.sh`` file
+- Install kubelet, kubeadm and Kubectl
+
+### Now Initialize a control plane node
 
 ```
 sudo kubeadm init
