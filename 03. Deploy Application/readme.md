@@ -74,18 +74,21 @@
 - Its Kubelet, kubelet automatically creates /etc/resolv.conf file for each pod
 - ``` sudo cat /var/lib/kubelet/config.yaml ``` there you will find clusterDNS
 
-#### - Nameserver in the k8s cluster. - Manages list of service names and their IP Addresses. - All pods point to this nameserver. **DNS server in k8s is CoreDNS/kubeDNS**. In the very first- kubeadm init command this CoreDNS was installed with addons. You can find it in ``` kubectl get pod -n kube-system ```
+- Nameserver in the k8s cluster. 
+- Manages list of service names and their IP Addresses. 
+- All pods point to this nameserver. **DNS server in k8s is CoreDNS/kubeDNS**. 
+- In the very first: kubeadm init command this CoreDNS was installed with addons. You can find it in ``` kubectl get pod -n kube-system ```
+
 ##### So for troubleshooting of DNS problem check logs of Coredns/kube-dns
 
 
 #### Checking same service in another namespace and deployments is in different namespace, can they talk?
-``` kubectl create ns test-ns
-```
+``` 
+kubectl create ns test-ns
 
-```
 kubectl run test-nginx-svc -n test-ns --image=nginx      ## Same service name but different namespace. 
-
 ```
+
     kubectl get svc
 
     curl 10.109.170.40:8080   ## ip of the service can talk
