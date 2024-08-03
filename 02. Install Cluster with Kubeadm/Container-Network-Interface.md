@@ -62,23 +62,18 @@
    ``` 
    
    ```
-   kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml -O weave.yaml
+   kubectl apply -f weave-daemonset-k8s.yaml
+
    ```
+
+#### check weave net status
+    kubectl exec -n kube-system weave-net-1jkl6 -c weave -- /home/weave/weave --local status     ### Change weave-net-1jkl6 address to your actual weave pod 
     
-## To change the default cidr block
-   vim weave.yaml
+    kubectl get pod -n kube-system -o wide | grep weave
+    
+    kubectl logs weave-net-itjad -c weave           ## log in not belongs to pod rather than belongs to a container. Here you will see so many errors, to solve errors we need to adjust weave port numbers.  # Change name of the weave pod use your weave pod name
 
-   * Now go to DaemonSet component or kind
-   * There would be containers, command -/home/weave/launch.sh below the command add:
-   - --ipalloc-range=100.32.0.0/12        ## Weavenet default cidr range is 10.32.0.0/12
-   * Now apply
-   kubect apply -f weave.yaml
-
-   kubectl get node  ## Now master node is in ready state.
-
-   kubectl get pod -n kube-system   ## Now coredns pod is also in running state & another 
-                                       pod is running named weave-net that manages pod 
-                                       network in our cluster. 
+    kubectl logs weave-net-hxvcj -c weave | tail -n 20   
 
     * To check pod network is working or not
     kubectl describe pod coredns-<suffix> -n kube-system  ## here you can see the IP address of our own cidr range
@@ -89,9 +84,20 @@
     * Control static pod has the node internal ip and after using the cni got the cni cidr range ip.
     kubectl get node -o wide
 
+    
+## If you want to change the default cidr block
+    * Go to weave-daemonset-k8s.yaml as vim file - "sudo vim weave-daemonset-k8s.yaml" and add:
+    * below command section there would be - /home/weave/launch.sh beneath this command now add: 
+      - --ipalloc-range=100.32.0.0/12        ## Weavenet default cidr range is 10.32.0.0/12
+    
+    * For taking action:
+    
+      kubect apply -f weave-daemonset-k8s.yaml
+      
+      kubectl get node  ## Now master node is in ready state.
+	
+      kubectl get pod -n kube-system   ## Now coredns pod is also in running state & another pod is running named weave-net 						that manages pod network in our cluster. 
 
-#### check weave net status
-    kubectl exec -n kube-system weave-net-1jkl6 -c weave -- /home/weave/weave --local status
 
 #### Now connect master node with the worker nodes
 - A bidirectional trust need to be established
@@ -115,26 +121,15 @@
     kubectl get pod -A -o wide    ## here you can see kube proxy and weave net is running on workers
 
 
-## weave status
-    kubectl get pod -n kube-system -o wide | grep weave
-    kubectl logs weave-net-itjad -c weave           ## log in not belongs to pod rather than belongs to a container. Here you will see so many errors, to solve errors we need to adjust weave port numbers.  # Change name of the weave pod use your weave pod name
-
-
 ## open weave net port both control plane & worker nodes
     port: 6783  # within same vpc, not all network.
     port: 6784
 
-    * Now again check logs
-    kubectl logs weave-net-hxvcj -c weave | tail -n 20   ## You can see connection added (new peer)
-
-    kubectl exec -n kube-system weave-net-itjad -c weave -- /home/weave/weave --local status
-
-
 #### start a test pod
     kubectl run test --image=nginx
-	kubectl run test2 --image=nginx
-	kubectl get pod -w       ## Here w is watch 
-	kubectl get pod -o wide  ## Here you can see, Ip range is allocated as we gave the weavenet cidr range
+    kubectl run test2 --image=nginx
+    kubectl get pod -w       ## Here w is watch 
+    kubectl get pod -o wide  ## Here you can see, Ip range is allocated as we gave the weavenet cidr range
 
 
 # Optional
