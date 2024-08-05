@@ -1,0 +1,26 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  namespace: my-app   ## If ns is not told, then it would be default ns.
+  name: dev-cr      
+rules:
+- apiGroups:
+  - ""              ## Core API groups is default, "" indicates its a core api group
+  resources:
+  - pods
+  - services
+  verbs: ["*"]
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  - statefulSets
+  verbs:
+  - get
+  - list
+  - create
+  - delete
+  resourceNames: ["mydb"]  ## This is optional, define access to only certain pods in that ns.
+
+
+# Cluster role - Define access for cluster wide resources and for namespaced resources.
