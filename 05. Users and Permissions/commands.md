@@ -38,7 +38,7 @@ spec:
     kubectl get csr dev-momo -o yaml
 
 #### save decoded cert to dev-momo.crt file
-    from: kubectl get csr dev-momo -o yaml copy the certidicate base64 code and decode with:
+    from kubectl get csr dev-momo -o yaml copy the certidicate base64 code and decode with:
     echo 'base64 code' | base64 --decode > dev-tom.crt  
     
     # You can get the actual certificate # crt is public key and key is private key
