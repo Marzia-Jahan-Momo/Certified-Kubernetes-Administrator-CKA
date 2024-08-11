@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.20
+  nodeSelector:
+    type: cpu
+
+# kubectl get node --show-labels       -----This is in build label
+# kubectl label node worker2 type=cpu  -----This is custom label
+# kubectl apply -f pod-with-node-selector.yaml
+# kubectl get pod <pod-name> -o wide
