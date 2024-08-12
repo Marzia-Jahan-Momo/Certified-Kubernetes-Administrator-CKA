@@ -23,7 +23,7 @@
 - Drain the node, pods will be rescheduled on other Nodes will be marked as unschedulable and upgrade kubelet.
 - Change worker node back to schedulable.
 - Upgrade worker node with above steps one by one.
-- For no application downtime you need at least 2 worker ndoe and at least 2 pod replicas.
+- For no application downtime you need at least 2 worker node and at least 2 pod replicas.
 
 
 #### Draining and Cordon
