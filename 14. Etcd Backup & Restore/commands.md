@@ -39,7 +39,7 @@
 
 
 ##### etcd path:
-sudo ls /var/lib/etcd
+    sudo ls /var/lib/etcd
 
 ##### Better and more secure way to store etcd:
 1. Use remote storage outside k8s cluster.
