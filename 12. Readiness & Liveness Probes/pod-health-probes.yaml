@@ -20,3 +20,6 @@ spec:
       periodSeconds: 15
       
 
+
+# kubectl apply -f pod-heath-probes.yaml 
+# kubectl get pod
