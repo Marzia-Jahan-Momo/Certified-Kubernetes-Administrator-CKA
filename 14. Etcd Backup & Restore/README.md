@@ -7,3 +7,8 @@
 ##### **Not stored inside etcd:**
 - Application Data is not stored in it.  
 - Storage configured with Persistent Volume is for applicaiton data.
+
+### How to create an etcd backup?
+- Etcdctl is a command line tool for interacting with etcd server.
+- First install Etcdctl into master node
+- Second create backup with Etcdctl 
