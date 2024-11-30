@@ -99,7 +99,7 @@ or,
 sudo kubeadm init --pod-network-cidr=10.0.0.0/16
 
 ```
-**Kubeadm does**:
+**Kubeadm does**: 
 - Generates /etc/kubernetes folder.
 - Generates a self-signed CA to set up identities for each component.
 - Put generated certificates inside.
