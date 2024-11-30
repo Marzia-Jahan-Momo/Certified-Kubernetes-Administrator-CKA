@@ -66,7 +66,7 @@ sudo vim /etc/sysctl.conf       ### Add this line: net.bridge.bridge-nf-call-ipt
 sudo echo '1' > /proc/sys/net/ipv4/ip_forward
 exit
 
-- sudo vi /etc/containerd/config.toml
+- sudo vim /etc/containerd/config.toml
 	#disabled_plugins = ["cri"]
 	[plugins."io.containerd.grpc.v1.cri"]
 	  sandbox_image = "registry.k8s.io/pause:3.9"
