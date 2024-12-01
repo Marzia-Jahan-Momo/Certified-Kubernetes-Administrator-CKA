@@ -98,6 +98,9 @@ sudo kubeadm init
 or,
 sudo kubeadm init --pod-network-cidr=10.0.0.0/16
 
+
+# If init causing problem:
+	sudo containerd config default > /etc/containerd/config.toml
 ```
 **Kubeadm does**: 
 - Generates /etc/kubernetes folder.
